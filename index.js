@@ -1,59 +1,82 @@
-var n = document.querySelectorAll(".drum").length;
-
-//Checking for if button is clicked
-for(var i = 0; i < n; i++)
-{
-     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-          
-      var btnClick = this.innerHTML;
-      makesound(btnClick);
-      btnAnimation(btnClick);
-
-     });
+body {
+  text-align: center;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 }
 
-//Checking if keyboard keys are pressed
-document.addEventListener("keypress", function (event) {
-     makesound(event.key);
-     btnAnimation(event.key);
-})
+h1 {
+  font-size: 5rem;
+  color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 7px 7px #00000085;
 
-function makesound(key)
-{
-     switch (key) {
-          case "w" : var crash = new Audio("sounds/crash.mp3");
-                     crash.play();
-                     break;
-          case "a" : var tom1 = new Audio("sounds/tom-1.mp3");
-                     tom1.play();
-                     break;
-          case "s" : var snare = new Audio("sounds/snare.mp3");
-                     snare.play();
-                     break;
-          case "d" : var tom2 = new Audio("sounds/tom-2.mp3");
-                     tom2.play();
-                     break;
-          case "j" : var kick = new Audio("sounds/kick-bass.mp3");
-                     kick.play();
-                     break;
-          case "k" : var tom3 = new Audio("sounds/tom-3.mp3");
-                     tom3.play();
-                     break;
-          case "l" : var tom4 = new Audio("sounds/tom-4.mp3");
-                     tom4.play();
-                     break;
-          default:  console.log(key);
-                    break;
-       }
 }
 
-function btnAnimation(currentKey)
-{
-     var activeBtn = document.querySelector("." + currentKey);
-     activeBtn.classList.add("pressed");
+footer {
+  color: #DBEDF3;
+  font-family: sans-serif;
+}
 
-     setTimeout(() => {
-          activeBtn.classList.remove("pressed");
-     }, 100);
+.a {
+  background-image: url("images/crash.png");
+}
 
+.s {
+  background-image: url("images/tom1.png");
+}
+
+.d {
+  background-image: url("images/snare.png");
+}
+
+.f {
+  background-image: url("images/tom2.png");
+}
+
+.l {
+  background-image: url("images/kick.png");
+}
+
+.k {
+  background-image: url("images/tom3.png");
+}
+
+.j {
+  background-image: url("images/tom4.png");
+}
+
+.set {
+  margin: 10% auto;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
+  opacity: 0.5;
+}
+
+.red {
+  color: red;
+}
+
+.drum {
+  outline: none;
+  font-size: 5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 2;
+  font-weight: 700;
+  color: #050505;
+  text-shadow: 3px 3px #DBEDF3;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 7px 7px #0000007e;
 }
